@@ -1,4 +1,35 @@
 
+
+// ------------Slider Create -----------------------
+
+var Image = ["img-1.jpg", "img-2.jpg", "img-3.jpg"]
+
+var my_image = document.getElementById("myImage")
+
+var countImageIndex = 0
+
+function myImageChange() {
+  countImageIndex++
+
+  if (countImageIndex >= Image.length) {
+    countImageIndex = 0
+    my_image.src = Image[countImageIndex]
+  }
+  else {
+    my_image.src = Image[countImageIndex]
+
+  }
+
+  setTimeout("myImageChange()", 1000)
+}
+
+window.onload = myImageChange()
+
+
+
+// --------- All Search Phone ---------------
+
+
 const loadPhones = async (searchText, dataLimit) => {
   const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
   const res = await fetch(url)
